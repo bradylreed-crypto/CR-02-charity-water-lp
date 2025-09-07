@@ -1,3 +1,37 @@
+                    <!-- Top Nav -->
+                    <header class="site-header">
+                            <div class="container header-row">
+                                    <a class="brand" href="index.html">
+                                            <img src="img/cw_logo-2.png" alt="charity: water logo" style="height:32px;">
+                                    </a>
+                                    <nav class="nav">
+                                            <a href="take-action.html">Take Action</a>
+                                            <a href="about.html">About Us</a>
+                                            <a href="why-water.html">Why Water?</a>
+                                            <a href="#signin">Sign In</a>
+                                            <span aria-hidden="true" class="divider">|</span>
+                                            <a href="#give" class="btn btn--give" onclick="document.getElementById('give').style.display='block'; window.scrollTo({top:document.getElementById('give').offsetTop,behavior:'smooth'}); return false;">Give</a>
+                                    </nav>
+                            </div>
+                    </header>
+
+                    <!-- Collage and message band (only one) -->
+                    <section class="collage-hero">
+                        <div class="collage collage--top">
+                            <img src="img/photo1.jpg" alt="Smiling child with water" />
+                            <img src="img/photo2.jpg" alt="Well being dug" />
+                            <img src="img/photo3.jpg" alt="Woman at a pump" />
+                            <img src="img/photo4.jpg" alt="Student in classroom" />
+                        </div>
+                        <div class="message-band" id="take-action" aria-labelledby="hero-title">
+                            <h1 id="hero-title">Turn $10 into clean water for someone’s lifetime</h1>
+                            <p class="subhead">
+                                When you give, you’re not just donating—you’re putting clean water in someone’s
+                                hands for the first time. The impact is real, and it starts with you.
+                            </p>
+                            <a href="#give" class="btn btn--primary" onclick="document.getElementById('give').style.display='block'; window.scrollTo({top:document.getElementById('give').offsetTop,behavior:'smooth'}); return false;">Make a<br class="br-sm"> difference</a>
+                        </div>
+                    </section>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,41 +41,64 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Hero Section: This is the main banner at the top of the page -->
-    <section class="hero">
-        <!-- Main headline -->
-        <h1>Clean Water for Everyone</h1>
-        <!-- Subheadline -->
-        <p>Join us in bringing safe, clean water to communities in need.</p>
-    </section>
+        <!-- Collage Hero -->
+        <section class="collage-hero">
+            <!-- Top image strip -->
+            <div class="collage collage--top">
+                <img src="img/photo1.jpg" alt="Smiling child with water" />
+                <img src="img/photo2.jpg" alt="Well being dug" />
+                <img src="img/photo3.jpg" alt="Woman at a pump" />
+                <img src="img/photo4.jpg" alt="Student in classroom" />
+            </div>
 
-    <!-- Story Section: This tells the story of the nonprofit -->
-    <section class="story">
-        <h2>Our Story</h2>
-        <p>
-         
-    </section>
 
-    <!-- Real-World Impact Story Section -->
-    <section class="impact-story">
-        <!-- Section headline -->
-        <h2>Real Impact: Meet Amina</h2>
-        <!-- Container for image and text -->
-        <div class="impact-content">
-            <!-- Impact image -->
-            <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Amina smiling with clean water" class="impact-image">
-            <!-- Impact story text -->
-            <p>
-                Amina used to walk miles every day to collect water for her family. Thanks to your support, her village now has a clean water well. Amina can go to school and her family is healthier and happier.
-            </p>
-        </div>
-    </section>
+            <!-- Top Nav -->
+            <header class="site-header">
+                <div class="container header-row">
+                    <a class="brand" href="index.html">
+                        <img src="img/cw_logo-2.png" alt="charity: water logo" style="height:32px;">
+                    </a>
+                    <nav class="nav">
+                        <a href="take-action.html">Take Action</a>
+                        <a href="about.html">About Us</a>
+                        <a href="why-water.html">Why Water?</a>
+                        <a href="#signin">Sign In</a>
+                        <span aria-hidden="true" class="divider">|</span>
+                        <a href="#give" class="btn btn--give" onclick="document.getElementById('give').style.display='block'; window.scrollTo({top:document.getElementById('give').offsetTop,behavior:'smooth'}); return false;">Give</a>
+                    </nav>
+                </div>
+            </header>
 
-    <!-- Call-to-Action Section: This encourages visitors to take action -->
-    <section class="call-to-action">
-        <h2>Make a Difference</h2>
-        <p>Your support can help save lives. Every donation brings us closer to a world with clean water for all.</p>
-        <a href="#" class="donate-button">Donate Now</a>
-    </section>
+            <!-- ...existing code... -->
+
+                <!-- Collage Hero moved to bottom -->
+                <section class="collage-hero">
+                    <!-- Top image strip (now at bottom) -->
+                    <div class="collage collage--top">
+                        <img src="img/photo1.jpg" alt="Smiling child with water" />
+                        <img src="img/photo2.jpg" alt="Well being dug" />
+                        <img src="img/photo3.jpg" alt="Woman at a pump" />
+                        <img src="img/photo4.jpg" alt="Student in classroom" />
+                    </div>
+
+                    <!-- Central message band (now at bottom) -->
+                    <div class="message-band" id="take-action" aria-labelledby="hero-title">
+                        <h1 id="hero-title">Turn $10 into clean water for someone’s lifetime</h1>
+                        <p class="subhead">
+                            When you give, you’re not just donating—you’re putting clean water in someone’s
+                            hands for the first time. The impact is real, and it starts with you.
+                        </p>
+                        <a href="#give" class="btn btn--primary" onclick="document.getElementById('give').style.display='block'; window.scrollTo({top:document.getElementById('give').offsetTop,behavior:'smooth'}); return false;">Make a<br class="br-sm"> difference</a>
+                    </div>
+                </section>
+
+        <footer class="site-footer">
+            <div class="container footer-row" style="justify-content:center; text-align:center;">
+                <small>© Student campaign for charity: water (class project)</small>
+                <a href="#">Back to top</a>
+            </div>
+        </footer>
+</body>
+</html>
 </body>
 </html>
