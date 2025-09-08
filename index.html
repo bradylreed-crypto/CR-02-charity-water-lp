@@ -1,104 +1,235 @@
-                    <!-- Top Nav -->
-                    <header class="site-header">
-                            <div class="container header-row">
-                                    <a class="brand" href="index.html">
-                                            <img src="img/cw_logo-2.png" alt="charity: water logo" style="height:32px;">
-                                    </a>
-                                    <nav class="nav">
-                                            <a href="take-action.html">Take Action</a>
-                                            <a href="about.html">About Us</a>
-                                            <a href="why-water.html">Why Water?</a>
-                                            <a href="#signin">Sign In</a>
-                                            <span aria-hidden="true" class="divider">|</span>
-                                            <a href="#give" class="btn btn--give" onclick="document.getElementById('give').style.display='block'; window.scrollTo({top:document.getElementById('give').offsetTop,behavior:'smooth'}); return false;">Give</a>
-                                    </nav>
-                            </div>
-                    </header>
-
-                    <!-- Collage and message band (only one) -->
-                    <section class="collage-hero">
-                        <div class="collage collage--top">
-                            <img src="img/photo1.jpg" alt="Smiling child with water" />
-                            <img src="img/photo2.jpg" alt="Well being dug" />
-                            <img src="img/photo3.jpg" alt="Woman at a pump" />
-                            <img src="img/photo4.jpg" alt="Student in classroom" />
-                        </div>
-                        <div class="message-band" id="take-action" aria-labelledby="hero-title">
-                            <h1 id="hero-title">Turn $10 into clean water for someone’s lifetime</h1>
-                            <p class="subhead">
-                                When you give, you’re not just donating—you’re putting clean water in someone’s
-                                hands for the first time. The impact is real, and it starts with you.
-                            </p>
-                            <a href="#give" class="btn btn--primary" onclick="document.getElementById('give').style.display='block'; window.scrollTo({top:document.getElementById('give').offsetTop,behavior:'smooth'}); return false;">Make a<br class="br-sm"> difference</a>
-                        </div>
-                    </section>
-<!DOCTYPE html>
+     <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charity Water Landing Page</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>charity: water — Make a Difference</title>
+  <style>
+    /* ===== Base & Brand ===== */
+    :root{
+  --brand-blue:#77abbb;          /* panel background (adjust to taste) */
+  --brand-yellow:#ffc907;        /* CTA button */
+      --brand-yellow-text:#1a1a1a;   /* CTA text color for contrast */
+      --text:#1f2d3d;
+      --muted:#4b5b67;
+      --bg:#ffffff;
+      --grid-gap: 8px;
+      --maxw: 1200px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  color:var(--text);
+  background:linear-gradient(180deg, #cbccd1 60%, #77abbb 100%);
+      line-height:1.5;
+    }
+    a{color:inherit;text-decoration:none}
+    img{display:block;width:100%;height:100%;object-fit:cover}
+
+    /* ===== Top Bar ===== */
+    .topbar{
+      width:100%;
+      border-bottom:1px solid #e6ecef;
+      background:#fff;
+    }
+    .topbar-inner{
+      max-width:var(--maxw);
+      margin:0 auto;
+      padding:10px 16px;
+      display:flex;
+      align-items:center;
+      gap:18px;
+    }
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      font-weight:700;
+      letter-spacing:.5px;
+    }
+    .logo-mark{
+      width:14px;height:14px;border-radius:2px;
+      background:var(--brand-yellow);
+      display:inline-block;flex:0 0 14px;
+      border:1px solid #d4b53a;
+    }
+    nav{
+      margin-left:auto;
+      display:flex;
+      gap:18px;
+      font-size:14px;
+    }
+    .give-btn{
+      background:var(--brand-yellow);
+      color:var(--brand-yellow-text);
+      padding:6px 12px;
+      border-radius:999px;
+      font-weight:700;
+      border:1px solid #d4b53a;
+      transition:transform .05s ease-in-out;
+    }
+    .give-btn:active{transform:scale(.98)}
+
+    /* ===== HERO: Image Mosaic with Center Panel ===== */
+    .hero{
+      position:relative;
+      max-width:100%;
+      margin:0 auto;
+      /* two rows of images above and below the panel */
+    }
+    .mosaic{
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap:0;
+    }
+    .mosaic-row{
+  max-width:var(--maxw);
+  margin:0 auto;
+  padding:0;
+    }
+
+    /* Center panel sits between two image rows */
+    .panel-wrap{
+  position:relative;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:0;
+  background:transparent;
+    }
+    .panel{
+  width:100%;
+  max-width:var(--maxw);
+  background:var(--brand-blue);
+  color:#0e1b22;
+  padding:40px 24px;
+  border-radius:6px;
+  text-align:center;
+  border: 0;
+  box-shadow: 0 12px 32px -8px #cbccd1, 0 0 0 8px linear-gradient(180deg, #77abbb 60%, #cbccd1 100%);
+  /* border removed */
+    }
+    .panel h1{
+      margin:0 0 10px;
+      font-size:clamp(28px, 4vw, 42px);
+      line-height:1.2;
+      font-weight:800;
+      letter-spacing:.2px;
+    }
+    .panel p{
+      margin:0 auto 20px;
+      max-width:720px;
+      color:#0e1b22;
+      font-size:clamp(14px, 2vw, 16px);
+    }
+    .cta{
+      display:inline-block;
+      background:var(--brand-yellow);
+      color:var(--brand-yellow-text);
+      padding:14px 22px;
+      border-radius:999px;
+      font-weight:900;
+      border:1px solid #d4b53a;
+      box-shadow:0 4px 0 #d4b53a;
+      transition:transform .05s ease-in-out, box-shadow .05s ease-in-out;
+    }
+    .cta:active{
+      transform:translateY(2px);
+      box-shadow:0 2px 0 #d4b53a;
+    }
+
+    /* ===== Footer (simple) ===== */
+    footer{
+      max-width:var(--maxw);
+      margin:40px auto;
+      padding:0 16px 40px;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    /* ===== Responsive tweaks ===== */
+    @media (max-width: 800px){
+      .mosaic{grid-template-columns: repeat(2, 1fr);}
+      nav{display:none;} /* keep header simple on mobile; bring back later if needed */
+      .panel{padding:28px 18px}
+    }
+  </style>
 </head>
 <body>
-        <!-- Collage Hero -->
-        <section class="collage-hero">
-            <!-- Top image strip -->
-            <div class="collage collage--top">
-                <img src="img/photo1.jpg" alt="Smiling child with water" />
-                <img src="img/photo2.jpg" alt="Well being dug" />
-                <img src="img/photo3.jpg" alt="Woman at a pump" />
-                <img src="img/photo4.jpg" alt="Student in classroom" />
-            </div>
 
+  <!-- Top navigation -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="logo">
+  <img src="img/cw_logo-2.png" alt="Charity Water Logo" style="height:32px; width:auto;"> 
+      </div>
+      <nav aria-label="Primary">
+  <a href="take-action.html">Take Action</a>
+  <a href="about-us.html">About Us</a>
+  <a href="why-water.html">Why Water?</a>
+  <a href="sign-in.html">Sign In</a>
+  <span style="border-left:1.5px solid #ccc;height:24px;margin:0 10px;"></span>
+  <a class="give-btn" href="donate.html" style="align-self:center; position:relative; top:-4px;">Give</a>
+      </nav>
+    </div>
+  </header>
 
-            <!-- Top Nav -->
-            <header class="site-header">
-                <div class="container header-row">
-                    <a class="brand" href="index.html">
-                        <img src="img/cw_logo-2.png" alt="charity: water logo" style="height:32px;">
-                    </a>
-                    <nav class="nav">
-                        <a href="take-action.html">Take Action</a>
-                        <a href="about.html">About Us</a>
-                        <a href="why-water.html">Why Water?</a>
-                        <a href="#signin">Sign In</a>
-                        <span aria-hidden="true" class="divider">|</span>
-                        <a href="#give" class="btn btn--give" onclick="document.getElementById('give').style.display='block'; window.scrollTo({top:document.getElementById('give').offsetTop,behavior:'smooth'}); return false;">Give</a>
-                    </nav>
-                </div>
-            </header>
+  <!-- HERO -->
+  <main class="hero">
+    <!-- Top image row -->
+    <section class="mosaic-row">
+      <div class="mosaic" aria-hidden="true">
+        <!-- Top 4 images replaced with local files -->
+  <img src="img/1.01.jpg" alt="Water Project 1">
+  <img src="img/1.02.jpg" alt="Water Project 2">
+  <img src="img/1.03.jpg" alt="Water Project 3">
+  <img src="img/1.04.jpg" alt="Water Project 4">
+      </div>
+    </section>
 
-            <!-- ...existing code... -->
+    <!-- Center panel -->
+    <section class="panel-wrap">
+      <div class="panel" role="region" aria-label="Impact statement">
+        <h1>Turn $10 into clean water for someone’s lifetime</h1>
+        <p>When you give, you’re not just donating—you’re putting clean water in someone’s hands for the first time. The impact is real, and it starts with you.</p>
+  <a class="cta" href="donate.html">Donate Today</a>
+      </div>
+    </section>
 
-                <!-- Collage Hero moved to bottom -->
-                <section class="collage-hero">
-                    <!-- Top image strip (now at bottom) -->
-                    <div class="collage collage--top">
-                        <img src="img/photo1.jpg" alt="Smiling child with water" />
-                        <img src="img/photo2.jpg" alt="Well being dug" />
-                        <img src="img/photo3.jpg" alt="Woman at a pump" />
-                        <img src="img/photo4.jpg" alt="Student in classroom" />
-                    </div>
+    <!-- Bottom image row -->
+    <section class="mosaic-row">
+      <div class="mosaic" aria-hidden="true">
+  <img src="img/3.01.jpg" alt="Water Project 5" style="object-fit: cover; object-position: bottom;">
+  <img src="img/2.02.jpg" alt="Water Project 6" style="object-position: right;">
+  <img src="img/2.03.jpg" alt="Water Project 7">
+  <img src="img/3.04.jpg" alt="Water Project 8" style="object-fit: cover; object-position: bottom;">
+      </div>
+    </section>
+  </main>
 
-                    <!-- Central message band (now at bottom) -->
-                    <div class="message-band" id="take-action" aria-labelledby="hero-title">
-                        <h1 id="hero-title">Turn $10 into clean water for someone’s lifetime</h1>
-                        <p class="subhead">
-                            When you give, you’re not just donating—you’re putting clean water in someone’s
-                            hands for the first time. The impact is real, and it starts with you.
-                        </p>
-                        <a href="#give" class="btn btn--primary" onclick="document.getElementById('give').style.display='block'; window.scrollTo({top:document.getElementById('give').offsetTop,behavior:'smooth'}); return false;">Make a<br class="br-sm"> difference</a>
-                    </div>
-                </section>
-
-        <footer class="site-footer">
-            <div class="container footer-row" style="justify-content:center; text-align:center;">
-                <small>© Student campaign for charity: water (class project)</small>
-                <a href="#">Back to top</a>
-            </div>
-        </footer>
+  <!-- Simple footer -->
+  <!-- Fun Water Fact Section -->
+  <section style="max-width:600px;margin:40px auto 0 auto;padding:24px 16px;background:#fff;border-radius:12px;box-shadow:0 2px 8px rgba(46,157,247,0.07);text-align:center;">
+    <h2 style="color:#222;font-size:2em;margin-bottom:12px;">Did You Know?</h2>
+    <p style="font-size:1.2em;color:#222;margin-bottom:18px;">Nearly 1 in 10 people worldwide lack access to clean water.</p>
+    <div style="display:flex;justify-content:center;">
+      <img src="img/water-can-transparent.png" alt="Water Can" style="height:80px;width:auto;margin-bottom:12px;">
+    </div>
+  <p style="color:#4b5b67;font-size:1em;">Your action today creates a ripple of positive change. Join a movement that empowers, uplifts, and transforms futures—one drop at a time.</p>
+  </section>
+  <style>
+    /* Make Did You Know box pop with yellow border and shadow */
+    section[style*='max-width:600px'] {
+      border: 3px solid #ffc907;
+      box-shadow: 0 6px 24px rgba(46,157,247,0.15);
+    }
+  </style>
+  </section>
+  <footer>
+  <div style="text-align:center;">© 2025 Your Organization. Imagery is placeholder; replace with your own photos.</div>
+  </footer>
 </body>
 </html>
-</body>
+
 </html>
