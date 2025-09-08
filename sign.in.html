@@ -1,0 +1,75 @@
+DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sign In - charity: water</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body { background: #cbccd1; margin: 0; }
+    .signin-box {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(46,157,247,0.07);
+      max-width: 400px;
+      margin: 60px auto;
+      padding: 32px 24px;
+      text-align: center;
+      color: #222;
+    }
+    .signin-box h2 { color: #77abbb; margin-bottom: 18px; }
+    .signin-box input {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 1em;
+    }
+    .signin-box button {
+      background: #ffc907;
+      color: #222;
+      border: none;
+      border-radius: 999px;
+      padding: 12px 28px;
+      font-size: 1.1em;
+      font-weight: bold;
+      margin: 12px 0;
+      cursor: pointer;
+      box-shadow: 0 4px 0 #d4b53a;
+      transition: transform .05s;
+    }
+    .signin-box button:active { transform: scale(.98); }
+    .signin-links {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+    }
+    .signin-links a {
+      color: #77abbb;
+      text-decoration: underline;
+      font-size: 0.95em;
+      cursor: pointer;
+    }
+    .back-link { display: block; margin-top: 24px; color: #77abbb; text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <header style="display:flex;align-items:center;padding:16px 0 0 16px;">
+    <img src="img/cw_logo-2.png" alt="Charity Water Logo" style="height:32px;width:auto;">
+  </header>
+  <div class="signin-box">
+    <h2>Sign In</h2>
+    <form>
+      <input type="email" placeholder="Email" required><br>
+      <input type="password" placeholder="Password" required><br>
+      <button type="submit">Enter</button>
+    </form>
+    <div class="signin-links">
+      <a href="#">Forgot Password?</a>
+      <a href="#">Forgot Username?</a>
+    </div>
+    <a href="index.html" class="back-link">← Back to Home</a>
+  </div>
+</body>
+</html>
